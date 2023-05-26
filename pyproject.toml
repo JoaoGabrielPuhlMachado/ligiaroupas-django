@@ -27,6 +27,7 @@ dependencies = [
     "Pillow>=9.5.0",
     "drf-spectacular>=0.26.2",
     "django-environ>=0.10.0",
+    "mysqlclient>=2.1.1",
 ]
 requires-python = ">=3.10"
 license = {text = "MIT"}
