@@ -1,5 +1,6 @@
 from django.db import models
 from ligiaroupas.models import Categoria, Marca, Cor, Tamanho
+from uploader.models import Image
 
 class Item(models.Model):
     nome = models.CharField(max_length=100)
@@ -9,9 +10,10 @@ class Item(models.Model):
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT, related_name="itens")
     cor = models.ForeignKey(Cor, on_delete=models.PROTECT, related_name="itens")
     tamanho = models.ForeignKey(Tamanho, on_delete=models.PROTECT, related_name="itens")
+    capa = models.ForeignKey(Image, related_name="+", on_delete=models.CASCADE, null= True, blank= True, default=None)
 
     def __str__(self):
-        return f"{self.nome} {self.marca} {self.cor} Tamanho {self.tamanho} ({self.quantidade})"
+        return f"Nome: {self.nome}. Categoria: {self.categoria}. Marca: {self.marca}. Cor: {self.cor}. Tamanho: {self.tamanho}. Estoque: ({self.quantidade})."
     
     class Meta:
         verbose_name = "Item"

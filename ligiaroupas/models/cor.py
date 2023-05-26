@@ -1,10 +1,10 @@
 from django.db import models
 
 class Cor(models.Model):
-    descricao = models.CharField(max_length=50)
+    nome_cor = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.descricao
+        return self.nome_cor
     
     class Meta:
         verbose_name = "Cor"

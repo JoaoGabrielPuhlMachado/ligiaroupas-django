@@ -1,10 +1,10 @@
 from django.db import models
 
 class Marca(models.Model):
-    descricao = models.CharField(max_length=50)
+    nome_marca = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.descricao
+        return self.nome_marca
     
     class Meta:
         verbose_name = "Marca"

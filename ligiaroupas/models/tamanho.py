@@ -1,10 +1,10 @@
 from django.db import models
 
 class Tamanho(models.Model):
-    descricao = models.CharField(max_length=10)
+    especificacao = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.descricao
+        return self.especificacao
     
     class Meta:
         verbose_name = "Tamanho"
