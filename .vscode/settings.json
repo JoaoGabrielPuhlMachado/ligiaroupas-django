@@ -4,5 +4,18 @@
   ],
   "python.autoComplete.extraPaths": [
     "${workspaceFolder}/__pypackages__/3.10/lib"
+  ],
+  "cSpell.words": [
+    "corsheaders",
+    "documentação",
+    "gerenciamento",
+    "incluindo",
+    "Ligia",
+    "ligiaroupas",
+    "Loja",
+    "Paulo",
+    "Roupas",
+    "simplejwt",
+    "Usuario"
   ]
 }
