@@ -3,15 +3,6 @@ import os, environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECRET_KEY = 'django-insecure-sxw=1gp0&+vj18%vy$0c8$erzonrhjy!d#-wt8zvj^ipp67!pq'
-
-# DEBUG = True
-
-# ALLOWED_HOSTS = []
-
-
-# Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -121,12 +112,12 @@ REST_FRAMEWORK = {
     #     "rest_framework.permissions.IsAuthenticated",
     #     "rest_framework.permissions.DjangoModelPermissions",
     # ],
-    # "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 AUTH_USER_MODEL = "ligiaroupas.Usuario"
 
-MEDIA_URL = "http://localhost:8000/media/"
+MEDIA_URL = "http://joaosttirlley.pythonanywhere.com/media/"
 MEDIA_ENDPOINT = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/")
 FILE_UPLOAD_PERMISSIONS = 0o640
