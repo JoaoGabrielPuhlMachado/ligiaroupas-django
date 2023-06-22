@@ -1,29 +1,14 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 
-from .models import Categoria, Marca, Cor, Tamanho, Item, Usuario
+from .models import Categoria, Marca, Cor, Tamanho, Item, Compra, ItensCompra
 
-class UsuarioAdmin(UserAdmin):
-    fieldsets = (
-        (None, {"fields": ("username", "password")}),
-        (_("Personal info"), {"fields": ("first_name", "last_name", "email", "cpf", "telefone", "data_nascimento")}),
-        (
-            _("Permissions"),
-            {
-                "fields": (
-                    "is_active",
-                    "is_staff",
-                    "is_superuser",
-                    "groups",
-                    "user_permissions",
-                ),
-            },
-        ),
-        (_("Important dates"), {"fields": ("last_login", "date_joined")}),
-    )
-
-admin.site.register(Usuario, UsuarioAdmin)
+class ItensCompraInline(admin.TabularInline):
+    model = ItensCompra
+    
+@admin.register(Compra)
+class CompraAdmin(admin.ModelAdmin):
+    inlines = [ItensCompraInline]
 
 @admin.register(Marca)
 class MarcaAdmin(admin.ModelAdmin):
@@ -55,7 +40,7 @@ class TamanhoAdmin(admin.ModelAdmin):
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'categoria', 'cor', 'marca', 'tamanho')
+    list_display = ('nome', 'categoria', 'cor', 'marca', 'tamanho',)
     search_fields = ('nome', 'categoria__descricao', 'nome_cor', 'nome_marca', 'especificacao',)
     list_filter = ('categoria', 'cor', 'marca', 'tamanho',)
     ordering = ('nome', 'categoria', 'cor', 'marca', 'tamanho',)

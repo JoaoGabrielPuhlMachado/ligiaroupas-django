@@ -16,6 +16,7 @@ INSTALLED_APPS = [
     'drf_spectacular',
     'uploader',
     'ligiaroupas',
+    'usuario',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +116,7 @@ REST_FRAMEWORK = {
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
-AUTH_USER_MODEL = "ligiaroupas.Usuario"
+AUTH_USER_MODEL = "usuario.Usuario"
 
 MEDIA_URL = "http://joaosttirlley.pythonanywhere.com/media/"
 MEDIA_ENDPOINT = "/media/"

@@ -15,6 +15,7 @@ from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshVie
 from uploader.router import router as uploader_router
 
 from ligiaroupas.views import CategoriaViewset, CorViewset, ItemViewset, MarcaViewset, TamanhoViewset
+from usuario.router import router as usuario_router
 
 router = DefaultRouter()
 router.register(r"categorias", CategoriaViewset)
@@ -28,6 +29,7 @@ urlpatterns = [
     path("api/", include(router.urls)),
     path("token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
+    path("api/", include(usuario_router.urls)),
     path("api/media/", include(uploader_router.urls)),
        path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     path(
