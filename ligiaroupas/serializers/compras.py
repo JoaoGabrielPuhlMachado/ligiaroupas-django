@@ -12,7 +12,7 @@ class ItensCompraSerializer(ModelSerializer):
         depth = 2
 
     def get_total(self, instance):
-        return instance.quantidade * instance.livro.preco
+        return instance.quantidade * instance.produto.preco
 
 
 class CompraSerializer(ModelSerializer):

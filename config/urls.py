@@ -20,7 +20,7 @@ from usuario.router import router as usuario_router
 router = DefaultRouter()
 router.register(r"categorias", CategoriaViewset)
 router.register(r"cores", CorViewset)
-router.register(r"itens", ProdutoViewset)
+router.register(r"produtos", ProdutoViewset)
 router.register(r"compras", CompraViewset )
 router.register(r"marcas", MarcaViewset)
 router.register(r"tamanhos", TamanhoViewset)

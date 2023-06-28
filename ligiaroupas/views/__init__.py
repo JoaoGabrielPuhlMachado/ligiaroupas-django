@@ -3,4 +3,4 @@ from .cor import CorViewset
 from .produto import ProdutoViewset
 from .marca import MarcaViewset
 from .tamanho import TamanhoViewset
-from .compra import CompraViewset
+from .compras import CompraViewset

@@ -22,6 +22,12 @@ class ProdutoDetailSerializer(ModelSerializer):
     class Meta:
         model = Produto
         fields = "__all__"
+    def get_categorias(self, instance):
+        descricao = []
+        categorias = instance.categorias.get_queryset()
+        for categoria in categorias:
+            descricao.append(categoria.nome)
+        return descricao
 
 class ProdutoListSerializer(ModelSerializer):
     class Meta:
