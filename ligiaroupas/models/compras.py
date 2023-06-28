@@ -16,13 +16,14 @@ class Compra(models.Model):
     status = models.IntegerField(
         choices=StatusCompra.choices, default=StatusCompra.CARRINHO
     )
-
     @property
     def total(self):
         queryset = self.itens.all().aggregate(
             total=models.Sum(F("quantidade") * F("produto__preco"))
         )
         return queryset["total"]
+    def __str__(self):
+        return f"Usuario: {self.usuario}. Status: {self.status}. Total Pedido: {self.total:.2f}"
 
 
 class ItensCompra(models.Model):
