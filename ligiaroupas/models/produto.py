@@ -2,7 +2,7 @@ from django.db import models
 from ligiaroupas.models import Categoria, Marca, Cor, Tamanho
 from uploader.models import Image
 
-class Item(models.Model):
+class Produto(models.Model):
     nome = models.CharField(max_length=100)
     preco = models.DecimalField(max_digits=7, decimal_places=2, default=0)
     quantidade = models.IntegerField(default=0)
@@ -16,5 +16,5 @@ class Item(models.Model):
         return f"Nome: {self.nome}. Categoria: {self.categoria}. Marca: {self.marca}. Cor: {self.cor}. Tamanho: {self.tamanho}. Estoque: ({self.quantidade})."
     
     class Meta:
-        verbose_name = "Item"
-        verbose_name_plural = "Itens"
+        verbose_name = "Produto"
+        verbose_name_plural = "Produtos"

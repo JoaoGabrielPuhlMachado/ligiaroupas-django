@@ -14,13 +14,14 @@ from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshVie
 
 from uploader.router import router as uploader_router
 
-from ligiaroupas.views import CategoriaViewset, CorViewset, ItemViewset, MarcaViewset, TamanhoViewset
+from ligiaroupas.views import CategoriaViewset, CorViewset, ProdutoViewset, MarcaViewset, TamanhoViewset, CompraViewset
 from usuario.router import router as usuario_router
 
 router = DefaultRouter()
 router.register(r"categorias", CategoriaViewset)
 router.register(r"cores", CorViewset)
-router.register(r"itens", ItemViewset)
+router.register(r"itens", ProdutoViewset)
+router.register(r"compras", CompraViewset )
 router.register(r"marcas", MarcaViewset)
 router.register(r"tamanhos", TamanhoViewset)
 

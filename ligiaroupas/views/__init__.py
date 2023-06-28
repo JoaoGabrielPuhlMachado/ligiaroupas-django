@@ -1,5 +1,6 @@
 from .categoria import CategoriaViewset
 from .cor import CorViewset
-from .item import ItemViewset
+from .produto import ProdutoViewset
 from .marca import MarcaViewset
 from .tamanho import TamanhoViewset
+from .compra import CompraViewset

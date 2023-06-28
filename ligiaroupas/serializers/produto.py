@@ -2,9 +2,9 @@ from rest_framework.serializers import ModelSerializer, SlugRelatedField
 
 from uploader.models import Image
 from uploader.serializers import ImageSerializer
-from ligiaroupas.models import Item
+from ligiaroupas.models import Produto
 
-class ItemSerializer(ModelSerializer):
+class ProdutoSerializer(ModelSerializer):
     capa_attachment_key = SlugRelatedField(
         source="capa",
         queryset=Image.objects.all(),
@@ -14,17 +14,17 @@ class ItemSerializer(ModelSerializer):
     )
     capa = ImageSerializer(required=False, read_only=True)
     class Meta:
-        model = Item
+        model = Produto
         fields = "__all__"
 
-class ItemDetailSerializer(ModelSerializer):
+class ProdutoDetailSerializer(ModelSerializer):
     capa = ImageSerializer(required=False)
     class Meta:
-        model = Item
+        model = Produto
         fields = "__all__"
 
-class ItemListSerializer(ModelSerializer):
+class ProdutoListSerializer(ModelSerializer):
     class Meta:
-        model = Item
+        model = Produto
         fields = "__all__"
         depth = 1

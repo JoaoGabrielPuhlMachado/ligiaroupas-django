@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
 
-from .models import Categoria, Marca, Cor, Tamanho, Item, Compra, ItensCompra
+from .models import Categoria, Marca, Cor, Tamanho, Produto, Compra, ItensCompra
 
 class ItensCompraInline(admin.TabularInline):
     model = ItensCompra
@@ -38,8 +38,8 @@ class TamanhoAdmin(admin.ModelAdmin):
     list_filter = ('especificacao',)
     ordering = ('especificacao',)
 
-@admin.register(Item)
-class ItemAdmin(admin.ModelAdmin):
+@admin.register(Produto)
+class ProdutoAdmin(admin.ModelAdmin):
     list_display = ('nome', 'categoria', 'cor', 'marca', 'tamanho',)
     search_fields = ('nome', 'categoria__descricao', 'nome_cor', 'nome_marca', 'especificacao',)
     list_filter = ('categoria', 'cor', 'marca', 'tamanho',)

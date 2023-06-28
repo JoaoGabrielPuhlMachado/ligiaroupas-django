@@ -1,5 +1,6 @@
 from .categoria import CategoriaSerializer
 from .cor import CorSerializer
-from .item import ItemSerializer, ItemDetailSerializer, ItemListSerializer
+from .produto import ProdutoSerializer, ProdutoDetailSerializer, ProdutoListSerializer
 from .marca import MarcaSerializer
 from .tamanho import TamanhoSerializer
+from .compras import CompraSerializer, ItensCompraSerializer, CriarEditarCompraSerializer, CriarEditarItensCompraSerializer
