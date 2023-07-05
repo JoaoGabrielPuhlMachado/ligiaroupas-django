@@ -4,3 +4,4 @@ from .produto import ProdutoSerializer, ProdutoDetailSerializer, ProdutoListSeri
 from .marca import MarcaSerializer
 from .tamanho import TamanhoSerializer
 from .compras import CompraSerializer, ItensCompraSerializer, CriarEditarCompraSerializer, CriarEditarItensCompraSerializer
+from .mytoken import MyTokenObtainPairSerializer
