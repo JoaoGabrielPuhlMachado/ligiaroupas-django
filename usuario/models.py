@@ -1,11 +1,11 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.hashers import make_password
 
 from uploader.models import Image
 
 from .managers import CustomUserManager
-
 
 class Usuario(AbstractUser):
     username = None
@@ -23,7 +23,7 @@ class Usuario(AbstractUser):
         blank=True,
         default=None,
     )
-
+    password = models.CharField(max_length=128)
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
     EMAIL_FIELD = "email"
@@ -37,3 +37,8 @@ class Usuario(AbstractUser):
         verbose_name = "Usuário"
         verbose_name_plural = "Usuários"
         ordering = ["-date_joined"]
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            self.password = make_password(self.password)
+        super().save(*args, **kwargs)
